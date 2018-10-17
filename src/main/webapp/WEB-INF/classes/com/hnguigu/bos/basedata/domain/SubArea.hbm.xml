@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.hnguigu.bos.basedata.domain">
+    <class name="SubArea" table="t_sub_area">
+        <id name="id" column="sub_area_id">
+            <generator class="native"/>
+        </id>
+
+        <property name="addressKey" column="address_key" length="50" not-null="true"/>
+        <property name="startNum" column="start_number" length="10" not-null="true"/>
+        <property name="endNum" column="end_number" length="10" not-null="true"/>
+        <property name="single" column="single" length="10" not-null="true"/>
+        <property name="position" column="position" length="100" not-null="true"/>
+
+        <many-to-one name="decidedZone" column="decided_zone_id"/>
+        <many-to-one name="area" column="area_id"/>
+
+
+    </class>
+</hibernate-mapping>

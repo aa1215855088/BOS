@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.hnguigu.bos.basedata.domain">
+    <class name="Staff" table="t_staff">
+        <id name="id" column="staff_id">
+            <generator class="native"/>
+        </id>
+
+        <property name="name" column="staff_name" length="10" not-null="true"/>
+        <property name="telephone" column="staff_telephone" length="20" not-null="true"/>
+        <property name="pda" column="staff_has_pda" length="2" not-null="true"/>
+        <property name="deleteTag" column="staff_delele_tag" length="1" not-null="true"/>
+        <property name="station" column="staff_station" length="10" not-null="true"/>
+        <property name="standard" column="staff_standard" length="20" not-null="true"/>
+
+        <set name="decidedZones" inverse="true" cascade="save-update">
+            <key column="sub_area_id"/>
+            <one-to-many class="SubArea"/>
+        </set>
+
+    </class>
+</hibernate-mapping>

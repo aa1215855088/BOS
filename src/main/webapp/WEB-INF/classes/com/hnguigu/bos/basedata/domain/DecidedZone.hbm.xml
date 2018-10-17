@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.hnguigu.bos.basedata.domain">
+    <class name="DecidedZone" table="t_decided_zone">
+        <id name="id" column="decided_zone_id">
+            <generator class="native"/>
+        </id>
+
+        <property name="name" column="decided_zone_name" length="10" not-null="true"/>
+
+        <many-to-one name="staff" column="staff_id"/>
+    </class>
+</hibernate-mapping>

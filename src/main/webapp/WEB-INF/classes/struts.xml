@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <constant name="struts.configuration.xml.reload" value="true"/>
+    <constant name="struts.devMode" value="true"/>
+    <constant name="struts.enable.DynamicMethodInvocation" value="false"/>
+    <constant name="struts.ui.theme" value="simple"/>
+    <constant name="struts.i18n.encoding" value="UTF-8"/>
+    <constant name="struts.objectFactory" value="spring"/>
+
+    <package name="base" extends="struts-default" namespace="/">
+
+        <global-results>
+            <result name="error" type="redirectAction">
+                <param name="namespace">/index</param>
+                <param name="actionName">indexAction_error</param>
+            </result>
+        </global-results>
+
+        <global-exception-mappings>
+            <exception-mapping exception="com.hnguigu.bos.common.exception.BosException" result="error"/>
+        </global-exception-mappings>
+
+        
+        <action name="page_*_*">
+            <result type="dispatcher">/WEB-INF/pages/{1}/{2}.jsp</result>
+        </action>
+    </package>
+
+    <include file="struts/struts-index.xml"/>
+    <include file="struts/struts-basedata.xml"/>
+
+</struts>

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.hnguigu.bos.basedata.domain">
+    <class name="Area" table="t_area">
+        <id name="id" column="area_id">
+            <generator class="native"/>
+        </id>
+
+        <property name="name" column="area_name" length="10" not-null="true"/>
+        <property name="province" column="area_province" length="20" not-null="true"/>
+        <property name="city" column="area_city" length="20" not-null="true"/>
+        <property name="district" column="area_district" length="20" not-null="true"/>
+        <property name="postCode" column="area_post_code" length="20" not-null="true"/>
+        <property name="shortCode" column="area_short_code" length="20" not-null="true"/>
+        <property name="cityCode" column="area_city_code" length="20" not-null="true"/>
+    </class>
+</hibernate-mapping>
